@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\PhotoController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +22,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::resource('photos', PhotoController::class);
+
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/about', [AboutController::class, 'about']);
+Route::get('/articles/{id}', [ArticlesController::class, 'articles']);
+
+
+Route::get('/', [PageController::class, 'index']);
+Route::get('/about', [PageController::class, 'about']);
+Route::get('/articles/{id}', [PageController::class, 'articles']);
+
+
+Route::get('/hello', [WelcomeController::class, 'hello']);
 
 // Route::get('/article/{ID}', function
 // () { $postId = request ('ID');
 // return 'Halaman ke-'.$postId;
 // });
 
-Route::get('/user/{name?}', function ($name='John') {
-    return 'Herry'.$name;});
+// Route::get('/user/{name?}', function ($name='John') {
+//     return 'Herry'.$name;});
