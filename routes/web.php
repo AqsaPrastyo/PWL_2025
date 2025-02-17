@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+// Route::get('/article/{ID}', function
+// () { $postId = request ('ID');
+// return 'Halaman ke-'.$postId;
+// });
+
+Route::get('/user/{name?}', function ($name='John') {
+    return 'Herry'.$name;});
