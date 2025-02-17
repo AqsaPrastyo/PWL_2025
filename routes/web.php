@@ -21,6 +21,12 @@ use App\Http\Controllers\PhotoController;
 |
 */
 
+// Route::get('/greeting', function () {
+//     return view('blog.hello', ['name' => 'Aqsa Herry']);
+//     });
+
+Route::get('/greeting', [WelcomeController::class,
+'greeting']);
 
 Route::resource('photos', PhotoController::class);
 
